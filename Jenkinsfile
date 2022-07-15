@@ -16,10 +16,10 @@ node{
      }
      sh 'docker push jahirshawon/my-app:2.0.1'
    }
-   stage('Run Container on Dev Server'){
-     sh 'docker rm -f my-app'
+   stage('Run Container on Dev Server'){ 
      def dockerRun = 'docker run -p 8080:8080 -d --name my-app jahirshawon/my-app:2.0.1'
      sshagent(['dockerserver4']) {
+       sh 'docker rm -f my-app'
        sh "ssh -o StrictHostKeyChecking=no root@192.168.43.244 ${dockerRun}"
      }
    }
