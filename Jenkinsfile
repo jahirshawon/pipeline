@@ -1,6 +1,6 @@
 pipeline {
    triggers {
-        pollSCM('* * * * *') # POLL SCM OF REPO B HERE
+        pollSCM('* * * * *')
     }
    stage('SCM Checkout'){
        git 'https://github.com/jahirshawon/pipeline'
