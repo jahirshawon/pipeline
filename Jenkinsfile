@@ -1,7 +1,4 @@
 pipeline {
-   triggers {
-        pollSCM('* * * * *')
-    }
    stage('SCM Checkout'){
        git 'https://github.com/jahirshawon/pipeline'
    }
