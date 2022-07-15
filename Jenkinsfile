@@ -1,17 +1,5 @@
 pipeline {
    agent any
-    tools {
-        maven 'Maven' 
-        }
-   stages {
-        stage("Test"){
-            steps{
-                // mvn test
-                sh "mvn test"
-                
-            }
-            
-   }
    stage('Mvn Package'){
      def mvnHome = tool name: 'Maven', type: 'maven'
      def mvnCMD = "${mvnHome}/bin/mvn"
