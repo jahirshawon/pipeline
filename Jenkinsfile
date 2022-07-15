@@ -1,4 +1,10 @@
 pipeline {
+   triggers {
+        pollSCM('* * * * *') # POLL SCM OF REPO B HERE
+    }
+   stage('SCM Checkout'){
+       git 'https://github.com/jahirshawon/pipeline'
+   }
    stage('Mvn Package'){
      def mvnHome = tool name: 'Maven', type: 'maven'
      def mvnCMD = "${mvnHome}/bin/mvn"
