@@ -1,5 +1,7 @@
-node {
-   agent any
+node{
+   stage('SCM Checkout'){
+       git 'https://github.com/jahirshawon/pipeline'
+   }
    stage('mvn Package'){
      def mvnHome = tool name: 'Maven', type: 'maven'
      def mvnCMD = "${mvnHome}/bin/mvn"
